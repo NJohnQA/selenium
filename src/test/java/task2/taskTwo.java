@@ -10,8 +10,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.List;
-
 import static org.junit.Assert.assertEquals;
 
 public class taskTwo
@@ -31,7 +29,8 @@ public class taskTwo
     }
 
     @Test
-    public void findAnItem() throws InterruptedException {
+    public void findAnItem()
+    {
         driver.get("http://automationpractice.com/index.php");
 
         // Search for something
@@ -43,11 +42,12 @@ public class taskTwo
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"center_column\"]/ul/li[1]")));
 
         // Check for a link on the page with specific text
-        assertEquals(driver.findElement(By.xpath("(//a[contains(text(),\'Printed Summer Dress\')])[3]")).getText(), "Printed Summer Dress");
+        assertEquals(driver.findElement(By.xpath("(//a[contains(text(),'Printed Summer Dress')])[3]")).getText(), "Printed Summer Dress");
     }
 
     @Test
-    public void checkoutItem() throws InterruptedException {
+    public void checkoutItem()
+    {
         WebDriverWait wait = new WebDriverWait(driver, 30);
         driver.get("http://automationpractice.com/index.php");
         String userEmail = "fimawed908@chomagor.com";

@@ -1,18 +1,12 @@
 package task1;
 
-import java.util.List;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 import static org.junit.Assert.assertEquals;
 
@@ -20,7 +14,7 @@ public class taskOne
 {
     private WebDriver driver;
 
-    @BeforeClass
+    @Before
     public void setup() {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         driver = new ChromeDriver();
@@ -33,7 +27,8 @@ public class taskOne
     }
 
     @Test
-    public void addAUser() throws InterruptedException {
+    public void addAUser()
+    {
         driver.get("http://thedemosite.co.uk/");
 
         // Create a User

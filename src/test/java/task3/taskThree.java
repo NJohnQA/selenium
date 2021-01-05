@@ -8,8 +8,6 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import static org.junit.Assert.assertEquals;
-
 public class taskThree
 {
     private WebDriver driver;
@@ -27,23 +25,25 @@ public class taskThree
     }
 
     @Test
-    public void addAUser() throws InterruptedException {
+    public void getTopRiser()
+    {
         driver.get("https://www.hl.co.uk/shares/stock-market-summary/ftse-100");
+        driver.findElement(By.id("acceptCookie")).click();
+        driver.findElement(By.cssSelector("#view-constituents > ul > li:nth-child(2) > a")).click();
+        String first = driver.findElement(By.cssSelector("#view-constituents > div.table-overflow-wrapper > table > tbody > tr:nth-child(1) > td:nth-child(2) > a")).getText();
 
-        // Create a User
-        driver.findElement(By.linkText("3. Add a User")).click();
-        driver.findElement(By.name("username")).sendKeys("guest");
-        driver.findElement(By.name("password")).sendKeys("guest");
-        driver.findElement(By.name("FormsButton2")).click();
+        System.out.println(first);
+    }
 
-        // Login new User
-        driver.findElement(By.linkText("4. Login")).click();
-        driver.findElement(By.name("username")).sendKeys("guest");
-        driver.findElement(By.name("password")).sendKeys("guest");
-        driver.findElement(By.name("FormsButton2")).click();
+    @Test
+    public void getTopFaller()
+    {
+        driver.get("https://www.hl.co.uk/shares/stock-market-summary/ftse-100");
+        driver.findElement(By.id("acceptCookie")).click();
+        driver.findElement(By.cssSelector("#view-constituents > ul > li:nth-child(3) > a")).click();
+        String first = driver.findElement(By.cssSelector("#view-constituents > div.table-overflow-wrapper > table > tbody > tr:nth-child(1) > td:nth-child(2) > a")).getText();
 
-        // Assert Test
-        assertEquals(driver.findElement(By.cssSelector("center > b")).getText(), "**Successful Login**");
+        System.out.println(first);
     }
 
 
